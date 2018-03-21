@@ -1,0 +1,25 @@
+<?php
+
+// preencher se estiver no linux
+$_config['user']           = 'gustavo';
+$_config['group']          = 'gustavo';
+$_config['project_folder'] = 'singular-web';
+
+// saida do comando
+$output = [];
+
+// seta o comando
+$params = '';
+foreach( $argv as $ind => $arg ) {
+
+    // verifica se é diferente de 0
+    if ( $ind > 0 ) {
+        $params .= ' '.$arg.' ';
+    }
+}
+
+// execucao
+passthru( "php index.php cmd/loaderCMD run ".$params );
+exec( "cd .. && chown ".$_config['user'] .":".$_config['group']." -Rf ".$_config['project_folder'] );
+
+/* end of file */

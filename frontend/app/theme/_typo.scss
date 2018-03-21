@@ -1,0 +1,53 @@
+// Titulo de página
+.page-header {
+    padding-top: 25px;
+    color: theme-color( "title-light" );
+    border-bottom: 1px solid theme-color( "border-light" );
+}
+
+// Divisores de titulo
+.title-divider {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    margin-top: 15px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: 0px;
+        background: theme-color( "border-light" );
+        height: 1px;
+        width: 100%;
+    }
+    
+    span {
+        background: color( "white" );
+        padding-right: 15px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: block;
+        color: theme-color( "title" );
+    }
+}
+
+// Paragrafos de leituras
+.reading {
+    text-align: justify;
+    
+    &:first-letter {
+        margin-left: 25px;
+    }
+}
+
+// Seta os tamanhos de fonte
+$start: 2;
+@for $i from 1 through 50 {
+    .font-#{$i * $start} {
+        font-size: $i*$start#{'px'}
+    }
+}
+
+/* End of file */

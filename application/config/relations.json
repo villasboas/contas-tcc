@@ -1,0 +1,20 @@
+{
+    "produto": {
+        "manyToMany": [
+            "pedido"
+        ]
+    },
+    "pedido": {
+        "hasOne": [
+            "cliente"
+        ],
+        "manyToMany": [
+            "produto"
+        ]
+    },
+    "cliente": {
+        "hasMany": [
+            "pedido"
+        ]
+    }
+}

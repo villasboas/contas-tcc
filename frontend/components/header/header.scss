@@ -1,0 +1,21 @@
+// Header do topo da página
+#header {
+    border-bottom: 1px solid theme-color( "light" );
+
+    // links do header
+    .header-link {
+        display: inline-block;
+        color: theme-color( "title" );
+        padding: 0px 8px;
+        border-right: 1px solid theme-color( "border-light" );
+        transition: .25s;
+
+        &:hover {
+            cursor: pointer;
+            color: theme-color( "primary" );
+            transform: scale( 1.01 );
+        }
+    }
+}
+
+// End of file

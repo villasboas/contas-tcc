@@ -1,0 +1,38 @@
+// Bourbon
+@import "node_modules/bourbon/app/assets/stylesheets/bourbon";
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "node_modules/font-awesome/scss/font-awesome";
+
+// Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-select/sass/bootstrap-select";
+
+// Libs
+@import "node_modules/summernote/dist/summernote-bs4";
+@import "node_modules/lightbox2/dist/css/lightbox";
+
+// Slim
+@import "slim/slim";
+
+// Theme
+@import "theme/resets";
+@import "theme/timeline";
+@import "theme/shadows";
+@import "theme/typo";
+
+// Components
+@import "../components/helpbar/helpbar";
+@import "../components/header/header";
+@import "../components/navbar/navbar";
+@import "../components/footer/footer";
+@import "../components/sidebar/sidebar";
+@import "../components/midia-modal/midia-modal";
+
+// Pages
+@import "../pages/midias/midias";
+
+// End of file

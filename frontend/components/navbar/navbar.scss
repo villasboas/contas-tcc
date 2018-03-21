@@ -1,0 +1,31 @@
+// Access do topo da página
+#navbar {
+    border-bottom: 1px solid theme-color( "border-light" );
+
+    .access-content {
+        .access-link {
+            text-transform: uppercase;
+            display: block;
+            float: left;
+            font-size: 16px;
+            color: theme-color( "title" );
+            padding: 10px 20px;
+            border-right: 1px solid theme-color( "border-light" );
+            transition: .25s;
+
+            &:hover {
+                cursor: pointer;
+                color: theme-color( "primary" );
+                font-weight: bold;
+            }
+
+            &.active {
+                border-bottom: 3px solid theme-color( "primary" );
+                color: theme-color( "primary" );
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+// End of file

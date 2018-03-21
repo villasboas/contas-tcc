@@ -1,0 +1,36 @@
+{
+  "name": "phpmaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-select": "^1.12.4",
+    "codemirror": "^5.32.0",
+    "datatables.net-dt": "^1.10.16",
+    "emitter-js": "^2.0.1",
+    "lightbox2": "^2.10.0",
+    "rand-token": "^0.4.0",
+    "random-string": "^0.2.0",
+    "randomstring": "^1.1.5",
+    "summernote": "^0.8.8",
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "animate.css": "^3.5.2",
+    "bootstrap": "^4.0.0-beta.2",
+    "bourbon": "^4.3.4",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-connect-php": "^1.0.1",
+    "jquery": "^3.2.1",
+    "laravel-elixir": "^6.0.0-16",
+    "laravel-elixir-livereload": "^1.1.6",
+    "laravel-elixir-webpack-official": "^1.0.10",
+    "popper.js": "^1.12.9"
+  }
+}

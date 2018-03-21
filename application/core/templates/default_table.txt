@@ -1,0 +1,11 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*                                                               
+ |-------------------------------------------------------------- 
+ | TABELA %_TABLE_NAME_%                                            
+ |-------------------------------------------------------------- 
+ |                                                               
+*/
+$config['schema'] = %_TABLE_SCHEMA_%;
+
+/* end of file */

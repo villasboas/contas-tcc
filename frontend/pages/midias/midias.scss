@@ -1,0 +1,27 @@
+.midia-content {
+    background: theme-color( 'light' );
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    width: 100px;
+    height: 100px;
+
+    img {
+        transition: .25s;
+    }
+    .btn-danger, .btn-info {
+        bottom: 5px;
+        right: 5px;
+        display: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+        img {
+            opacity: 0.5;
+        }
+        .btn-danger, .btn-info {
+            display: block;
+        }
+    }
+}

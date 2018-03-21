@@ -1,0 +1,34 @@
+// Helpbar do topo da página
+#helpbar {
+    width: 100%;
+    height: 25px;
+    background: theme-color( "primary" );
+    border-bottom: 1px solid theme-color( "light" );
+
+    // Wrapper dos links de navegação
+    .nav-content {
+
+        // Links de navegação
+        .nav-link {
+            padding: 1px 10px;
+            font-size: 12px;
+            padding-bottom: 3px;
+            display: inline-block;
+            color: theme-color( "light" );
+            font-weight: bold;
+
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            &.active {
+                background: color( 'white' );
+                color: theme-color( "primary" );
+                border-radius: 5px 5px 0px 0px;
+            }
+        }
+    }
+}
+
+// End of file

@@ -1,0 +1,31 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * %_FINDER_NAME_%
+ * 
+ * Finder de %_FINDER_ENTITY_%
+ * 
+ */
+class %_FINDER_NAME_% extends SG_Model {
+
+    /**
+     * entity
+     *
+     * entidade da tabela
+     * 
+     * @var string
+     */
+    public $entity = '%_MODEL_NAME_%';
+
+    /**
+     * __construct
+     * 
+     * Método construtor
+     * 
+     */
+    public function __construct() {
+        parent::__construct();
+    }
+}
+
+/* end of file */

@@ -1,0 +1,54 @@
+// Rodapé
+#footer {
+    width: 100%;
+    border-top: 1px solid theme-color( "light" );
+
+    // Seção do footer
+    .footer-item {
+        color: theme-color( "title" );
+
+        // Titule da seção
+        .footer-item-title {
+            position: relative;
+            height: 24px;
+            margin-bottom: 10px;
+
+            span {
+                position: absolute;
+                left: 0px;
+                background: color( "white" );
+                padding-right: 10px;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                top: 12px;
+                background: theme-color( "border-light" );
+            }
+        }
+
+        // Link da seção
+        .footer-item-link {
+            padding-left: 15px;
+            margin-top: 10px;
+            transition: .25s;
+
+            &:hover {
+                cursor: pointer;
+                color: theme-color( "primary" );
+                transform: scale( 1.01 ) 
+            }
+        }
+    }
+
+    // Bloco de direitos
+    .footer-rights {
+        border-top: 1px solid theme-color( "light" );
+        color: theme-color( "title" );
+    }
+}
+
+// End of file

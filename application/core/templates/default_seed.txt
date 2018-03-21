@@ -1,0 +1,35 @@
+<?php defined('BASEPATH') or exit('No direct script access allowed');
+
+class %_LIBRARY_NAME_% {
+
+    /**
+     * ci
+     * 
+     * instancia do ci
+     *
+     * @var [type]
+     */
+    public $ci;
+
+    /**
+     * __construct
+     * 
+     * método construtor
+     * 
+     */
+    public function __construct() {
+        $this->ci =& get_instance();
+    }
+
+    /**
+     * populate
+     * 
+     * popula a seed
+     * 
+     */
+    public function populate() {
+
+    }
+};
+
+/* end of file */

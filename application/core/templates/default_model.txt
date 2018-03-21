@@ -1,0 +1,129 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+require_once '%_FINDER_FILE_%';
+
+/**
+ * %_ENTITY_NAME_%
+ * 
+ * Model de %_ENTITY_NAME_%
+ * 
+ */
+class %_MODEL_NAME_% extends %_FINDER_NAME_% {
+
+    /**
+     * fields
+     *
+     * campos do model
+     * 
+     * @var array
+     */
+    public $fields = %_FIELDS_%;
+
+    /**
+     * visibles
+     * 
+     * Campos visiveis no grid
+     *
+     * @var array
+     */
+    public $visibles = %_VISIBLES_%;
+
+    /**
+     * __construct
+     * 
+     * Método construtor
+     * 
+     */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+     * table
+     *
+     * pega a tabela
+     * 
+     * @return void
+     */
+    public function table() {
+        return '%_TABLE_NAME_%';
+    }
+
+    /**
+     * main
+     * 
+     * Pega o campo principal
+     *
+     * @return void
+     */
+    public function main() {
+        return $this->id;
+    }
+
+    /**
+     * columns
+     * 
+     * Colunas para o DataTables
+     *
+     * @return void
+     */
+    public function DataTables() {
+        
+        // Carrega a library
+        $this->load->library( 'DataTables' );
+
+        // Columns
+        $columns = %_DATATABLES_%;
+        $columns[] = 
+        [   
+            'db' => 'id',
+            'dt' => %_ACTION_NUMBER_%,  
+            'formatter' => function( $d, $row ) {
+
+                // Formata a data
+                $del  = rmButton( '%_ENTITY_NAME_%/delete/'.$d );
+                $edit = editButton( '%_ENTITY_NAME_%/list?addModal=true&id='.$d );
+
+                // Volta os botões
+                return $del.'&nbsp'.$edit;
+            }
+        ];
+
+        // Volta o resultado
+        return $this->datatables->send( $this->table(), $columns );
+    }
+    
+    /**
+     * form
+     * 
+     * Form de inserção
+     *
+     * @return void
+     */
+    public function form( $key ) {
+        $url = $this->id ? '%_ENTITY_NAME_%/save/'.$this->id : '%_ENTITY_NAME_%/save';
+        $data = [
+            'url'    => $url,
+            'fields' => %_FORM_FIELDS_%
+        ];
+        return $data[$key];
+    }
+
+    /**
+     * permissions
+     * 
+     * Volta o array de permissões
+     *
+     * @return Array
+     */
+    public function permissions() {
+        return [
+            'add'    => [ 'any' ],
+            'edit'   => [ 'any' ],
+            'delete' => [ 'any' ],
+            'read'   => [ 'any' ]
+        ];
+    }
+}
+
+// End of file
