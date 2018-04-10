@@ -28,6 +28,7 @@ class Bank extends SG_Controller {
 
 		// Seta o contexto
 		context( 'bank' );
+		navbar( 'Bancos' );
 
 		// carrega a model
 		$this->load->model( 'bank' );

@@ -27,7 +27,8 @@ class Tranche extends SG_Controller {
 		parent::__construct();
 
 		// Seta o contexto
-		context( 'tranche' );
+		context( 'bill' );
+		navbar( 'Contas' );
 
 		// carrega a model
 		$this->load->model( 'tranche' );

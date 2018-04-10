@@ -33,8 +33,8 @@ class Bank_model extends Bank_finder {
      */
     public $visibles = array (
   0 => 'ID',
-  1 => 'febrabam',
-  2 => 'name',
+  1 => 'Febrabam',
+  2 => 'Nome',
   3 => 'Ações',
 );
 
@@ -133,14 +133,14 @@ class Bank_model extends Bank_finder {
             'fields' => array (
   'febrabam' => 
   array (
-    'label' => 'febrabam',
+    'label' => 'Febrabam',
     'name' => 'febrabam',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'name' => 
   array (
-    'label' => 'name',
+    'label' => 'Nome',
     'name' => 'name',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',

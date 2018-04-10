@@ -27,7 +27,8 @@ class Agency extends SG_Controller {
 		parent::__construct();
 
 		// Seta o contexto
-		context( 'agency' );
+		context( 'bank' );
+		navbar( 'Bancos' );
 
 		// carrega a model
 		$this->load->model( 'agency' );

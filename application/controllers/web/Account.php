@@ -27,7 +27,8 @@ class Account extends SG_Controller {
 		parent::__construct();
 
 		// Seta o contexto
-		context( 'account' );
+		context( 'bank' );
+		navbar( 'Bancos' );
 
 		// carrega a model
 		$this->load->model( 'account' );

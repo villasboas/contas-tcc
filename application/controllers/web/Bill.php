@@ -28,6 +28,7 @@ class Bill extends SG_Controller {
 
 		// Seta o contexto
 		context( 'bill' );
+		navbar( 'Contas' );
 
 		// carrega a model
 		$this->load->model( 'bill' );

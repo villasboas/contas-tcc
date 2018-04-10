@@ -45,9 +45,9 @@ class Account_model extends Account_finder {
      */
     public $visibles = array (
   0 => 'ID',
-  1 => 'agency_id',
-  2 => 'account_number',
-  3 => 'balance',
+  1 => 'Agencia',
+  2 => 'Número',
+  3 => 'Saldo',
   4 => 'Ações',
 );
 
@@ -151,98 +151,98 @@ class Account_model extends Account_finder {
             'fields' => array (
   'agency_id' => 
   array (
-    'label' => 'agency_id',
+    'label' => 'Agência',
     'name' => 'agency_id',
     'type' => 'number',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'account_number' => 
   array (
-    'label' => 'account_number',
+    'label' => 'Número',
     'name' => 'account_number',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'balance' => 
   array (
-    'label' => 'balance',
+    'label' => 'Saldo',
     'name' => 'balance',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'cpf_holder' => 
   array (
-    'label' => 'cpf_holder',
+    'label' => 'CPF do titular',
     'name' => 'cpf_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'name_holder' => 
   array (
-    'label' => 'name_holder',
+    'label' => 'Nome do titular',
     'name' => 'name_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'email_holder' => 
   array (
-    'label' => 'email_holder',
+    'label' => 'Email do titular',
     'name' => 'email_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'city_id' => 
   array (
-    'label' => 'city_id',
+    'label' => 'Cidade do titular',
     'name' => 'city_id',
     'type' => 'number',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'zip_code_holder' => 
   array (
-    'label' => 'zip_code_holder',
+    'label' => 'CEP do titular',
     'name' => 'zip_code_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'address_holder' => 
   array (
-    'label' => 'address_holder',
+    'label' => 'Endereço do titular',
     'name' => 'address_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'address_number_holder' => 
   array (
-    'label' => 'address_number_holder',
+    'label' => 'Número do titular',
     'name' => 'address_number_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'complement_holder' => 
   array (
-    'label' => 'complement_holder',
+    'label' => 'Complemento do titular',
     'name' => 'complement_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'neighborhood_holder' => 
   array (
-    'label' => 'neighborhood_holder',
+    'label' => 'Bairro do titular',
     'name' => 'neighborhood_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'phone_number_holder' => 
   array (
-    'label' => 'phone_number_holder',
+    'label' => 'Telefone do titular',
     'name' => 'phone_number_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'cellphone_number_holder' => 
   array (
-    'label' => 'cellphone_number_holder',
+    'label' => 'Celular do titular',
     'name' => 'cellphone_number_holder',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',

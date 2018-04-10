@@ -39,9 +39,9 @@ class Bill_model extends Bill_finder {
      */
     public $visibles = array (
   0 => 'ID',
-  1 => 'client_id',
-  2 => 'bill_of_sale_id',
-  3 => 'cnpj',
+  1 => 'Cliente',
+  2 => 'Nota fiscal',
+  3 => 'CNPJ',
   4 => 'Ações',
 );
 
@@ -145,63 +145,63 @@ class Bill_model extends Bill_finder {
             'fields' => array (
   'client_id' => 
   array (
-    'label' => 'client_id',
+    'label' => 'Cliente',
     'name' => 'client_id',
     'type' => 'number',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'bill_of_sale_id' => 
   array (
-    'label' => 'bill_of_sale_id',
+    'label' => 'Nota fiscal',
     'name' => 'bill_of_sale_id',
     'type' => 'number',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'cnpj' => 
   array (
-    'label' => 'cnpj',
+    'label' => 'CNPJ',
     'name' => 'cnpj',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'portador' => 
   array (
-    'label' => 'portador',
+    'label' => 'Portador',
     'name' => 'portador',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'description' => 
   array (
-    'label' => 'description',
+    'label' => 'Descrição',
     'name' => 'description',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'value_total' => 
   array (
-    'label' => 'value_total',
+    'label' => 'Valor total',
     'name' => 'value_total',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'tranche_number' => 
   array (
-    'label' => 'tranche_number',
+    'label' => 'Numero da parcela',
     'name' => 'tranche_number',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'expiration_date_first_tranche' => 
   array (
-    'label' => 'expiration_date_first_tranche',
+    'label' => 'Validade da primeira parcela',
     'name' => 'expiration_date_first_tranche',
     'type' => 'text',
     'rules' => 'trim|required',
   ),
   'status' => 
   array (
-    'label' => 'status',
+    'label' => 'Status',
     'name' => 'status',
     'type' => 'text',
     'rules' => 'trim|required|max_length[1]',

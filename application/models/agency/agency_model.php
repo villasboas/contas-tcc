@@ -41,9 +41,9 @@ class Agency_model extends Agency_finder {
      */
     public $visibles = array (
   0 => 'ID',
-  1 => 'bank_id',
-  2 => 'agency_number',
-  3 => 'name',
+  1 => 'Banco',
+  2 => 'Número',
+  3 => 'Nome',
   4 => 'Ações',
 );
 
@@ -147,70 +147,70 @@ class Agency_model extends Agency_finder {
             'fields' => array (
   'bank_id' => 
   array (
-    'label' => 'bank_id',
+    'label' => 'Banco',
     'name' => 'bank_id',
     'type' => 'number',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'agency_number' => 
   array (
-    'label' => 'agency_number',
+    'label' => 'Número',
     'name' => 'agency_number',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'name' => 
   array (
-    'label' => 'name',
+    'label' => 'Nome',
     'name' => 'name',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'city_id' => 
   array (
-    'label' => 'city_id',
+    'label' => 'Cidade',
     'name' => 'city_id',
     'type' => 'number',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'zip_code' => 
   array (
-    'label' => 'zip_code',
+    'label' => 'CEP',
     'name' => 'zip_code',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'address' => 
   array (
-    'label' => 'address',
+    'label' => 'Endereço',
     'name' => 'address',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'address_number' => 
   array (
-    'label' => 'address_number',
+    'label' => 'Número endereço',
     'name' => 'address_number',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'complement' => 
   array (
-    'label' => 'complement',
+    'label' => 'Complemento',
     'name' => 'complement',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'neighborhood' => 
   array (
-    'label' => 'neighborhood',
+    'label' => 'Bairro',
     'name' => 'neighborhood',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'phone_number' => 
   array (
-    'label' => 'phone_number',
+    'label' => 'Telefone',
     'name' => 'phone_number',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
