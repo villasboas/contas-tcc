@@ -75,9 +75,9 @@ class Agency extends SG_Controller {
   ),
   3 => 
   array (
-    'field' => 'city_id',
-    'label' => 'city_id',
-    'rules' => 'trim|required|max_length[11]|integer',
+    'field' => 'city',
+    'label' => 'city',
+    'rules' => 'trim|required|max_length[11]',
   ),
   4 => 
   array (
@@ -101,7 +101,7 @@ class Agency extends SG_Controller {
   array (
     'field' => 'complement',
     'label' => 'complement',
-    'rules' => 'trim|required|max_length[255]',
+    'rules' => 'trim|max_length[255]',
   ),
   8 => 
   array (
@@ -113,6 +113,12 @@ class Agency extends SG_Controller {
   array (
     'field' => 'phone_number',
     'label' => 'phone_number',
+    'rules' => 'trim|required|max_length[255]',
+  ),
+  10 => 
+  array (
+    'field' => 'state',
+    'label' => 'state',
     'rules' => 'trim|required|max_length[255]',
   ),
 );

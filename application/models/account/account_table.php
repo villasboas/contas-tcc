@@ -51,10 +51,16 @@ $config['schema'] = array (
     'constraint' => 255,
     'null' => false,
   ),
-  'city_id' => 
+  'state' => 
   array (
-    'type' => 'int',
-    'constraint' => 11,
+    'type' => 'varchar',
+    'constraint' => 255,
+    'null' => false,
+  ),
+  'city' => 
+  array (
+    'type' => 'varchar',
+    'constraint' => 255,
     'null' => false,
   ),
   'zip_code_holder' => 
@@ -79,7 +85,7 @@ $config['schema'] = array (
   array (
     'type' => 'varchar',
     'constraint' => 255,
-    'null' => false,
+    'null' => true,
   ),
   'neighborhood_holder' => 
   array (

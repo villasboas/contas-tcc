@@ -21,7 +21,8 @@ class Agency_model extends Agency_finder {
   'bank_id' => 'bank_id',
   'agency_number' => 'agency_number',
   'name' => 'name',
-  'city_id' => 'city_id',
+  'state' => 'state',
+  'city' => 'city',
   'zip_code' => 'zip_code',
   'address' => 'address',
   'address_number' => 'address_number',
@@ -148,8 +149,9 @@ class Agency_model extends Agency_finder {
   'bank_id' => 
   array (
     'label' => 'Banco',
+    'model' => [ 'name' => 'bank' , 'call' => 'Bank' ],
     'name' => 'bank_id',
-    'type' => 'number',
+    'type' => 'select',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'agency_number' => 
@@ -166,12 +168,19 @@ class Agency_model extends Agency_finder {
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
-  'city_id' => 
+  'state' => 
+  array (
+    'label' => 'Estado',
+    'name' => 'state',
+    'type' => 'text',
+    'rules' => 'trim|required|max_length[11]',
+  ),
+  'city' => 
   array (
     'label' => 'Cidade',
-    'name' => 'city_id',
-    'type' => 'number',
-    'rules' => 'trim|required|max_length[11]|integer',
+    'name' => 'city',
+    'type' => 'text',
+    'rules' => 'trim|required|max_length[11]',
   ),
   'zip_code' => 
   array (
@@ -199,7 +208,7 @@ class Agency_model extends Agency_finder {
     'label' => 'Complemento',
     'name' => 'complement',
     'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
+    'rules' => 'trim|max_length[255]',
   ),
   'neighborhood' => 
   array (

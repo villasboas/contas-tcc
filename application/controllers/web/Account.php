@@ -93,9 +93,9 @@ class Account extends SG_Controller {
   ),
   6 => 
   array (
-    'field' => 'city_id',
-    'label' => 'city_id',
-    'rules' => 'trim|required|max_length[11]|integer',
+    'field' => 'city',
+    'label' => 'city',
+    'rules' => 'trim|required|max_length[11]',
   ),
   7 => 
   array (
@@ -119,7 +119,7 @@ class Account extends SG_Controller {
   array (
     'field' => 'complement_holder',
     'label' => 'complement_holder',
-    'rules' => 'trim|required|max_length[255]',
+    'rules' => 'trim|max_length[255]',
   ),
   11 => 
   array (
@@ -137,6 +137,12 @@ class Account extends SG_Controller {
   array (
     'field' => 'cellphone_number_holder',
     'label' => 'cellphone_number_holder',
+    'rules' => 'trim|required|max_length[255]',
+	),
+	14 => 
+  array (
+    'field' => 'state',
+    'label' => 'state',
     'rules' => 'trim|required|max_length[255]',
   ),
 );

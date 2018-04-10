@@ -24,7 +24,8 @@ class Account_model extends Account_finder {
   'cpf_holder' => 'cpf_holder',
   'name_holder' => 'name_holder',
   'email_holder' => 'email_holder',
-  'city_id' => 'city_id',
+  'state' => 'state',
+  'city' => 'city',
   'zip_code_holder' => 'zip_code_holder',
   'address_holder' => 'address_holder',
   'address_number_holder' => 'address_number_holder',
@@ -152,8 +153,9 @@ class Account_model extends Account_finder {
   'agency_id' => 
   array (
     'label' => 'Agência',
+    'model' => [ 'name' => 'agency' , 'call' => 'Agency' ],
     'name' => 'agency_id',
-    'type' => 'number',
+    'type' => 'select',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'account_number' => 
@@ -191,12 +193,19 @@ class Account_model extends Account_finder {
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
-  'city_id' => 
+  'state' => 
+  array (
+    'label' => 'Estado do titular',
+    'name' => 'state',
+    'type' => 'text',
+    'rules' => 'trim|required|max_length[11]',
+  ),
+  'city' => 
   array (
     'label' => 'Cidade do titular',
-    'name' => 'city_id',
-    'type' => 'number',
-    'rules' => 'trim|required|max_length[11]|integer',
+    'name' => 'city',
+    'type' => 'text',
+    'rules' => 'trim|required|max_length[11]',
   ),
   'zip_code_holder' => 
   array (
@@ -224,7 +233,7 @@ class Account_model extends Account_finder {
     'label' => 'Complemento do titular',
     'name' => 'complement_holder',
     'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
+    'rules' => 'trim|max_length[255]',
   ),
   'neighborhood_holder' => 
   array (

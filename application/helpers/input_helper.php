@@ -106,6 +106,29 @@ if ( ! function_exists( 'inputNumber' ) ) {
 }
 
 /**
+ * inputFile
+ * 
+ * imprime o input numero
+ * 
+ */
+if ( ! function_exists( 'inputFile' ) ) {
+    function inputFile( $label, $name, $params = [] ) {
+        
+        // prepara os parametros
+        $params['label'] = $label;
+        $params['placeholder'] = isset( $params['placeholder'] ) ? $params['placeholder'] : $label;
+        $params['type']  = 'file';
+        $params['row']   = isset( $params['row'] ) ? $params['row'] : true;
+        $params['col']   = isset(  $params['col'] ) ? $params['col'] : 'col';
+        $params['group'] = isset(  $params['group'] ) ? $params['group'] : 'input-group';
+        $params['attr']['name'] = $name;
+
+        // chama a funcao;
+        echo defaultInput( $params );
+    }
+}
+
+/**
  * inputEmail
  * 
  * imprime o input de email
@@ -171,6 +194,120 @@ if ( ! function_exists( 'inputHidden' ) ) {
 
         // chama a funcao;
         echo defaultInput( $params );
+   }
+}
+
+/**
+ * select
+ * 
+ * imprime o select
+ * 
+ */
+if ( ! function_exists( 'select' ) ) {
+   function select( $model, $label, $atributo, $entidade, $attModel = 'name', $attr = [] ) {
+       
+        // seta a instancia do codeignite
+        $ci =& get_instance();
+        $ci->load->model( [ $model['name'] ] );
+       
+       
+        // verifica se foi adicionada alguma classe
+        if ( isset( $attr['class'] ) ) {
+            $attr['class'] = $attr['class'].' form-control';
+        } else {
+            $attr['class'] = 'form-control';            
+        }
+
+        // comeca o template
+        $template = "<div class='row mt-3'>
+                        <div class='col'>
+                            <label for='$atributo'>$label</label>
+                                <select id='$atributo' 
+                                 class='selectpicker dropup form-control'
+                                 name='$atributo'
+                                 data-live-search='true'";
+        
+        // percorre os atributos
+        foreach( $attr as $chave => $valor ) $template .= " $chave='$valor'";
+
+        // concatena o template
+        $template .= ">";
+        foreach ( $ci->{$model['call']}->find() as $opt ) {
+                
+            // inicio
+            $template .= "<option value='".$opt->id ."'";
+            
+            // verifica se existe uma entidade
+            if ( $entidade ) {
+                if ( $entidade == $opt->id )
+                    $template .= "selected='selected'";
+            }
+                
+            // finaliza
+            $template .= ">" .$opt->$attModel ."</option>";
+
+        }
+
+        // seta o template
+        $template .= "</select></div></div>";
+
+        // imprime o template
+        echo $template;
+   }
+}
+
+/**
+ * selectOpc
+ * 
+ * imprime o select
+ * 
+ */
+if ( ! function_exists( 'selectOpc' ) ) {
+   function selectOpc( $opcoes, $label, $name, $entidade, $attr = [] ) {       
+       
+        // verifica se foi adicionada alguma classe
+        if ( isset( $attr['class'] ) ) {
+            $attr['class'] = $attr['class'].' selectpicker dropup form-control';
+        } else {
+            $attr['class'] = 'selectpicker dropup form-control';            
+        }
+
+        // comeca o template
+        $template = "<div class='row mt-3'>
+                        <div class='col'>
+                            <label for='$name'>$label</label>
+                                <select id='$name' 
+                                 class='". $attr['class'] ."'
+                                 name='$name'";
+        if( isset( $attr['search'] ) )
+            $template .= "data-live-search='true'";
+        
+        // percorre os atributos
+        foreach( $attr as $chave => $valor ) $template .= " $chave='$valor'";
+
+        // concatena o template
+        $template .= ">";
+        foreach ( $opcoes as $opt ) {
+                
+            // inicio
+            $template .= "<option value='".$opt['value'] ."'";
+            
+            // verifica se existe uma entidade
+            if ( $entidade ) {
+                if ( $entidade == $opt['value'] )
+                    $template .= "selected='selected'";
+            }
+                
+            // finaliza
+            $template .= ">" .$opt['label'] ."</option>";
+
+        }
+
+        // seta o template
+        $template .= "</select></div></div>";
+
+        // imprime o template
+        echo $template;
    }
 }
 
