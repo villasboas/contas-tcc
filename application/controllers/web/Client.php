@@ -93,9 +93,9 @@ class Client extends SG_Controller {
   ),
   6 => 
   array (
-    'field' => 'city_id',
-    'label' => 'city_id',
-    'rules' => 'trim|required|max_length[11]|integer',
+    'field' => 'city',
+    'label' => 'city',
+    'rules' => 'trim|required|max_length[255]',
   ),
   7 => 
   array (
@@ -119,7 +119,7 @@ class Client extends SG_Controller {
   array (
     'field' => 'complement',
     'label' => 'complement',
-    'rules' => 'trim|required|max_length[255]',
+    'rules' => 'trim|max_length[255]',
   ),
   11 => 
   array (

@@ -24,7 +24,8 @@ class Client_model extends Client_finder {
   'representative' => 'representative',
   'cpf' => 'cpf',
   'email' => 'email',
-  'city_id' => 'city_id',
+  'state' => 'state',
+  'city' => 'city',
   'zip_code' => 'zip_code',
   'address' => 'address',
   'address_number' => 'address_number',
@@ -46,9 +47,9 @@ class Client_model extends Client_finder {
      */
     public $visibles = array (
   0 => 'ID',
-  1 => 'cnpj',
-  2 => 'social_name',
-  3 => 'fantasy_name',
+  1 => 'CNPJ',
+  2 => 'Razão social',
+  3 => 'Representante',
   4 => 'Ações',
 );
 
@@ -152,105 +153,112 @@ class Client_model extends Client_finder {
             'fields' => array (
   'cnpj' => 
   array (
-    'label' => 'cnpj',
+    'label' => 'CNPJ',
     'name' => 'cnpj',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'social_name' => 
   array (
-    'label' => 'social_name',
+    'label' => 'Razão social',
     'name' => 'social_name',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'fantasy_name' => 
   array (
-    'label' => 'fantasy_name',
+    'label' => 'Nome fantasia',
     'name' => 'fantasy_name',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'representative' => 
   array (
-    'label' => 'representative',
+    'label' => 'Representante',
     'name' => 'representative',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'cpf' => 
   array (
-    'label' => 'cpf',
+    'label' => 'CPF',
     'name' => 'cpf',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'email' => 
   array (
-    'label' => 'email',
+    'label' => 'E-mail',
     'name' => 'email',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
-  'city_id' => 
+  'state' => 
   array (
-    'label' => 'city_id',
-    'name' => 'city_id',
-    'type' => 'number',
-    'rules' => 'trim|required|max_length[11]|integer',
+    'label' => 'Estado',
+    'name' => 'state',
+    'type' => 'text',
+    'rules' => 'trim|required|max_length[255]',
+  ),
+  'city' => 
+  array (
+    'label' => 'Cidade',
+    'name' => 'city',
+    'type' => 'text',
+    'rules' => 'trim|required|max_length[255]',
   ),
   'zip_code' => 
   array (
-    'label' => 'zip_code',
+    'label' => 'CEP',
     'name' => 'zip_code',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'address' => 
   array (
-    'label' => 'address',
+    'label' => 'Endereço',
     'name' => 'address',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'address_number' => 
   array (
-    'label' => 'address_number',
+    'label' => 'Número',
     'name' => 'address_number',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'complement' => 
   array (
-    'label' => 'complement',
+    'label' => 'Complemento',
     'name' => 'complement',
     'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
+    'rules' => 'trim|max_length[255]',
   ),
   'neighborhood' => 
   array (
-    'label' => 'neighborhood',
+    'label' => 'Bairro',
     'name' => 'neighborhood',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'phone_number' => 
   array (
-    'label' => 'phone_number',
+    'label' => 'Telefone',
     'name' => 'phone_number',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'cellphone_number' => 
   array (
-    'label' => 'cellphone_number',
+    'label' => 'Celular',
     'name' => 'cellphone_number',
     'type' => 'text',
     'rules' => 'trim|required|max_length[255]',
   ),
   'status' => 
   array (
-    'label' => 'status',
+    'label' => 'Status',
     'name' => 'status',
     'type' => 'text',
     'rules' => 'trim|required|max_length[1]',
