@@ -28,6 +28,7 @@ class Client extends SG_Controller {
 
 		// Seta o contexto
 		context( 'client' );
+		navbar( 'Clientes' );
 
 		// carrega a model
 		$this->load->model( 'client' );
