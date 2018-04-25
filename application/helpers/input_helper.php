@@ -232,7 +232,9 @@ if ( ! function_exists( 'select' ) ) {
 
         // concatena o template
         $template .= ">";
-        foreach ( $ci->{$model['call']}->find() as $opt ) {
+        $data =  $ci->{$model['call']}->find();
+        $data = is_array( $data ) ? $data : [];
+        foreach ( $data as $opt ) {
                 
             // inicio
             $template .= "<option value='".$opt->id ."'";
