@@ -1,5 +1,5 @@
 <!-- Modal -->
-<?php echo form_open_multipart( $modelGrid->form( 'url' ), [ 'class' => 'modal-content'] ); ?>
+<?php echo form_open_multipart( $modelGrid->form( 'url' ).'?addModal=true', [ 'class' => 'modal-content'] ); ?>
 
   
     <div class="modal-header">

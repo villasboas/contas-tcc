@@ -39,6 +39,7 @@ if ( !function_exists( 'defaultInput' ) ) {
         // adiciona o input
         $template .= "<input type='$type' 
                              class='$class' 
+                             value='".set_value($params['attr']['name'])."'
                              placeholder='$placeholder' ";
         
         // verifica se existe atributos

@@ -58,55 +58,55 @@ class Bill extends SG_Controller {
   0 => 
   array (
     'field' => 'client_id',
-    'label' => 'client_id',
+    'label' => 'Cliente',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   1 => 
   array (
     'field' => 'bill_of_sale_id',
-    'label' => 'bill_of_sale_id',
+    'label' => 'Nota fiscal',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   2 => 
   array (
     'field' => 'cnpj',
-    'label' => 'cnpj',
+    'label' => 'CNPJ',
     'rules' => 'trim|required|max_length[255]',
   ),
   3 => 
   array (
     'field' => 'portador',
-    'label' => 'portador',
+    'label' => 'Portador',
     'rules' => 'trim|required|max_length[255]',
   ),
   4 => 
   array (
     'field' => 'description',
-    'label' => 'description',
+    'label' => 'Descrição',
     'rules' => 'trim|required|max_length[255]',
   ),
   5 => 
   array (
     'field' => 'value_total',
-    'label' => 'value_total',
+    'label' => 'Valor total',
     'rules' => 'trim|required|max_length[255]',
   ),
   6 => 
   array (
     'field' => 'tranche_number',
-    'label' => 'tranche_number',
+    'label' => 'Número de parcelas',
     'rules' => 'trim|required|max_length[255]',
   ),
   7 => 
   array (
     'field' => 'expiration_date_first_tranche',
-    'label' => 'expiration_date_first_tranche',
+    'label' => 'Vencimento primeira parcela',
     'rules' => 'trim|required',
   ),
   8 => 
   array (
     'field' => 'status',
-    'label' => 'status',
+    'label' => 'Status',
     'rules' => 'trim|required|max_length[1]',
   ),
 );

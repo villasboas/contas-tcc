@@ -1,5 +1,5 @@
 <!-- Modal -->
-{!! form_open_multipart( $modelGrid->form( 'url' ), [ 'class' => 'modal-content'] ) !!}
+{!! form_open_multipart( $modelGrid->form( 'url' ).'?addModal=true', [ 'class' => 'modal-content'] ) !!}
   
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLabel">Novo registro</h5>
