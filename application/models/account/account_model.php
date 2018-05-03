@@ -107,6 +107,15 @@ class Account_model extends Account_finder {
   array (
     'db' => 'agency_id',
     'dt' => 1,
+    'formatter' => function( $d, $row ) {
+      
+        // Carrega a model
+        $this->load->model( 'agency' );
+
+        $agency = $this->Agency->findById( $d );
+
+        return $agency->name;
+    }
   ),
   2 => 
   array (

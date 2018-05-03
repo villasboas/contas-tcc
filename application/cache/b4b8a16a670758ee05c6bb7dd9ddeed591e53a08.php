@@ -12,77 +12,90 @@
     </div>
 
     <div class="modal-body">
-      <?php $__currentLoopData = $modelGrid->form( 'fields' ); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <?php if( $item['type'] == 'midia' ): ?>
+      <?php
 
-        <?php $__env->startSection( 'headScripts' ); ?>
-          <?php
-            $midia = $modelGrid->belongsTo( 'midia' );
-          ?>
-          <?php if( $midia ): ?>
-            <script>
-            var selectedMidias = [
-              <?php echo json_encode( $midia->metadata() ); ?>
+        // Obtem os campos
+        $formFields = array_chunk( $modelGrid->form( 'fields' ), 5 );
+ 
+      ?>
 
-            ];
-            </script>
-          <?php endif; ?>
-        <?php $__env->stopSection(); ?>
+      <div class="row">
+      <?php $__currentLoopData = $formFields; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $columns): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="col">
+        <?php $__currentLoopData = $columns; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <?php if( $item['type'] == 'midia' ): ?>
 
-        <div  class="midiaInput"         
-              <?php echo isset( $item['size'] ) ? 'data-size="'.$item['size'].'"' : 'data-size=""'; ?>
+          <?php $__env->startSection( 'headScripts' ); ?>
+            <?php
+              $midia = $modelGrid->belongsTo( 'midia' );
+            ?>
+            <?php if( $midia ): ?>
+              <script>
+              var selectedMidias = [
+                <?php echo json_encode( $midia->metadata() ); ?>
 
-              <?php echo isset( $item['ratio'] ) ? 'data-ratio="'.$item['ratio'].'"' : ''; ?>>
+              ];
+              </script>
+            <?php endif; ?>
+          <?php $__env->stopSection(); ?>
 
-            <label class="d-block pt-2"><?php echo e($item['label']); ?></label>
+          <div  class="midiaInput"         
+                <?php echo isset( $item['size'] ) ? 'data-size="'.$item['size'].'"' : 'data-size=""'; ?>
 
-            <div v-if="picked.length > 0" class="row pr-2 pl-2">
-              <div  v-for="(midia, key) in picked" 
-                    class="midia-content p-0 m-2" 
-                    v-bind:title="midia.name">
-                  <input type="hidden" name="midia[]" v-model="midia.id">
-                  <a v-bind:href="midia.path" data-lightbox="midias">
-                      <img class="position-absolute" v-bind:src="midia.path">
-                  </a>
-                  <button type="button" v-on:click="removeFromList( key )" class="btn btn-danger btn-sm position-absolute" title="Usar imagem">
-                    <i class="fa fa-trash-o"></i>
-                  </button>
-              </div>
-            </div><!-- midias -->
+                <?php echo isset( $item['ratio'] ) ? 'data-ratio="'.$item['ratio'].'"' : ''; ?>>
 
-            <button v-if="attrs.size != picked.length" type="button" class="btn btn-success" v-on:click="open()">
-              {{ title }}
-            </button><!-- botao de adicionar foto -->
+              <label class="d-block pt-2"><?php echo e($item['label']); ?></label>
 
-        </div><!-- input de midia -->
+              <div v-if="picked.length > 0" class="row pr-2 pl-2">
+                <div  v-for="(midia, key) in picked" 
+                      class="midia-content p-0 m-2" 
+                      v-bind:title="midia.name">
+                    <input type="hidden" name="midia[]" v-model="midia.id">
+                    <a v-bind:href="midia.path" data-lightbox="midias">
+                        <img class="position-absolute" v-bind:src="midia.path">
+                    </a>
+                    <button type="button" v-on:click="removeFromList( key )" class="btn btn-danger btn-sm position-absolute" title="Usar imagem">
+                      <i class="fa fa-trash-o"></i>
+                    </button>
+                </div>
+              </div><!-- midias -->
 
-        <?php endif; ?>
-        
-        <?php if( $item['type'] == 'text' ): ?>
-        <?php echo inputText( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ); ?>
+              <button v-if="attrs.size != picked.length" type="button" class="btn btn-success" v-on:click="open()">
+                {{ title }}
+              </button><!-- botao de adicionar foto -->
 
-        <?php endif; ?>
-        <?php if( $item['type'] == 'number' ): ?>
-        <?php echo inputNumber( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ); ?>
-
-        <?php endif; ?>
-        <?php if( $item['type'] == 'file' ): ?>
-        <?php echo inputFile( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ); ?>
-
-        <?php endif; ?>
-        <?php if( $item['type'] == 'select' ): ?>
-          <?php if( isset( $item['attModel'] ) ): ?>
-            <?php echo select( $item['model'], $item['label'], $item['name'], $modelGrid->{$item['name']}, $item['attModel'] ); ?>
-
-          <?php elseif( isset( $item['model'] ) ): ?>
-            <?php echo select( $item['model'], $item['label'], $item['name'], $modelGrid->{$item['name']} ); ?>
-
-          <?php elseif( $item['opcoes'] ): ?>
-            <?php echo selectOpc( $item['opcoes'], $item['label'], $item['name'],$modelGrid->{$item['name']} ); ?>
+          </div><!-- input de midia -->
 
           <?php endif; ?>
-        <?php endif; ?>
+          
+          <?php if( $item['type'] == 'text' ): ?>
+          <?php echo inputText( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ); ?>
+
+          <?php endif; ?>
+          <?php if( $item['type'] == 'number' ): ?>
+          <?php echo inputNumber( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ); ?>
+
+          <?php endif; ?>
+          <?php if( $item['type'] == 'file' ): ?>
+          <?php echo inputFile( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ); ?>
+
+          <?php endif; ?>
+          <?php if( $item['type'] == 'select' ): ?>
+            <?php if( isset( $item['attModel'] ) ): ?>
+              <?php echo select( $item['model'], $item['label'], $item['name'], $modelGrid->{$item['name']}, $item['attModel'] ); ?>
+
+            <?php elseif( isset( $item['model'] ) ): ?>
+              <?php echo select( $item['model'], $item['label'], $item['name'], $modelGrid->{$item['name']} ); ?>
+
+            <?php elseif( $item['opcoes'] ): ?>
+              <?php echo selectOpc( $item['opcoes'], $item['label'], $item['name'],$modelGrid->{$item['name']} ); ?>
+
+            <?php endif; ?>
+          <?php endif; ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      </div>
     </div>
     
     <div class="modal-footer">

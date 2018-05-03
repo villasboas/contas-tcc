@@ -146,15 +146,18 @@ class Bill_model extends Bill_finder {
   'client_id' => 
   array (
     'label' => 'Cliente',
+    'model' => [ 'name' => 'client' , 'call' => 'Client' ],
     'name' => 'client_id',
-    'type' => 'number',
+    'attModel' => 'social_name',
+    'type' => 'select',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'bill_of_sale_id' => 
   array (
-    'label' => 'Nota fiscal',
+    'label' => 'Nota Fiscal',
+    'model' => [ 'name' => 'bill_of_sale' , 'call' => 'Bill_of_sale' ],
     'name' => 'bill_of_sale_id',
-    'type' => 'number',
+    'type' => 'select',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'cnpj' => 
@@ -201,10 +204,15 @@ class Bill_model extends Bill_finder {
   ),
   'status' => 
   array (
-    'label' => 'Status',
-    'name' => 'status',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[1]',
+    'label'  => 'Status',
+    'name'   => 'status',
+    'opcoes' => [ 
+        [ 'label' => 'Pago', 'value' => 'P' ],
+        [ 'label' => 'Aberto', 'value' => 'A' ],
+        [ 'label' => 'Cancelado', 'value' => 'C' ],
+      ],
+    'type'   => 'select',
+    'rules'  => 'trim|required|max_length[1]',
   ),
 )
         ];

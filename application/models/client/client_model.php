@@ -258,10 +258,14 @@ class Client_model extends Client_finder {
   ),
   'status' => 
   array (
-    'label' => 'Status',
-    'name' => 'status',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[1]',
+    'label'  => 'Status',
+    'name'   => 'status',
+    'opcoes' => [ 
+        [ 'label' => 'Ativo', 'value' => 'A' ],
+        [ 'label' => 'Bloqueado', 'value' => 'B' ]
+      ],
+    'type'   => 'select',
+    'rules'  => 'trim|required|max_length[1]',
   ),
 )
         ];

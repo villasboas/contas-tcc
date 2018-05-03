@@ -142,9 +142,10 @@ class Tranche_model extends Tranche_finder {
             'fields' => array (
   'bill_id' => 
   array (
-    'label' => 'bill_id',
+    'label' => 'Conta',
+    'model' => [ 'name' => 'bill' , 'call' => 'Bill' ],
     'name' => 'bill_id',
-    'type' => 'number',
+    'type' => 'select',
     'rules' => 'trim|required|max_length[11]|integer',
   ),
   'value' => 
@@ -177,10 +178,15 @@ class Tranche_model extends Tranche_finder {
   ),
   'status' => 
   array (
-    'label' => 'status',
-    'name' => 'status',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[1]',
+    'label'  => 'Status',
+    'name'   => 'status',
+    'opcoes' => [ 
+        [ 'label' => 'Pago', 'value' => 'P' ],
+        [ 'label' => 'Aberto', 'value' => 'A' ],
+        [ 'label' => 'Cancelado', 'value' => 'C' ],
+      ],
+    'type'   => 'select',
+    'rules'  => 'trim|required|max_length[1]',
   ),
   'interest_rate' => 
   array (
