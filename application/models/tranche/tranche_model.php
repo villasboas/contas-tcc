@@ -18,14 +18,14 @@ class Tranche_model extends Tranche_finder {
      * @var array
      */
     public $fields = array (
-  'bill_id' => 'bill_id',
-  'value' => 'value',
-  'expiration_date' => 'expiration_date',
-  'payment_date' => 'payment_date',
-  'paid_value' => 'paid_value',
-  'status' => 'status',
-  'interest_rate' => 'interest_rate',
-);
+      'bill_id'         => 'bill_id',
+      'value'           => 'value',
+      'expiration_date' => 'expiration_date',
+      'payment_date'    => 'payment_date',
+      'paid_value'      => 'paid_value',
+      'status'          => 'status',
+      'interest_rate'   => 'interest_rate',
+    );
 
     /**
      * visibles

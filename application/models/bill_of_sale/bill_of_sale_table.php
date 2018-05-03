@@ -73,6 +73,11 @@ $config['schema'] = array (
     'constraint' => 255,
     'null' => false,
   ),
+  'created_at' => 
+  array (
+    'type' => 'datetime',
+    'null' => false,
+  ),
 );
 
 /* end of file */

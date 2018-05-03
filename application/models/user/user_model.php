@@ -79,7 +79,7 @@ class User_model extends User_finder {
     public function hooks() {
         return [
             'beforeInsert' => 'hashPassword'
-        ];
+        ]; 
     }
 
     /**

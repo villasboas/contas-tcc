@@ -55,6 +55,10 @@
   <?php echo inputFile( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ); ?>
 
   <?php endif; ?>
+  <?php if( $item['type'] == 'date' ): ?>
+  <?php echo inputDate( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ); ?>
+
+  <?php endif; ?>
   <?php if( $item['type'] == 'select' ): ?>
     <?php if( isset( $item['attModel'] ) ): ?>
       <?php echo select( $item['model'], $item['label'], $item['name'], $modelGrid->{$item['name']}, $item['attModel'] ); ?>

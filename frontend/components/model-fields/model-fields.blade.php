@@ -50,6 +50,9 @@
   @if( $item['type'] == 'file' )
   {!! inputFile( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ) !!}
   @endif
+  @if( $item['type'] == 'date' )
+  {!! inputDate( $item['label'],  $item['name'], [ 'attr' => [ 'value' => $modelGrid->{$item['name']} ] ] ) !!}
+  @endif
   @if( $item['type'] == 'select' )
     @if( isset( $item['attModel'] ) )
       {!! select( $item['model'], $item['label'], $item['name'], $modelGrid->{$item['name']}, $item['attModel'] ) !!}

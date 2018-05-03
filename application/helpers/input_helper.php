@@ -37,11 +37,15 @@ if ( !function_exists( 'defaultInput' ) ) {
         
         
         // adiciona o input
+        $value = isset( $attr['value'] ) ? $attr['value'] : set_value($attr['name']);
         $template .= "<input type='$type' 
                              class='$class' 
-                             value='".set_value($params['attr']['name'])."'
+                             value='".$value."'
                              placeholder='$placeholder' ";
         
+        // Verifica se um valor esta sendo informado
+        if ( isset( $attr['value'] ) ) unset( $attr['value'] );
+
         // verifica se existe atributos
         if ( isset( $attr ) && $attr ) {
             foreach( $attr as $key => $item ) $template .= "$key='$item'";
@@ -197,6 +201,32 @@ if ( ! function_exists( 'inputHidden' ) ) {
         echo defaultInput( $params );
    }
 }
+
+/**
+ * inputHidden
+ * 
+ * imprime o input hidden
+ * 
+ */
+if ( ! function_exists( 'inputDate' ) ) {
+    function inputDate( $label, $name, $params = [] ) {
+        
+        // prepara os parametros
+        $params['label']        = $label;
+        $params['placeholder']  = isset( $params['placeholder'] ) ? $params['placeholder'] : $label;
+        $params['type']         = 'date';
+        $params['row']          = isset( $params['row'] ) ? $params['row'] : true;
+        $params['col']          = isset(  $params['col'] ) ? $params['col'] : 'col';
+        $params['group']        = isset(  $params['group'] ) ? $params['group'] : 'input-group';
+        $params['attr']['name'] = $name;
+        if ( isset( $params['attr']['value'] ) ) {
+            $params['attr']['value'] = date( 'Y-m-d', strtotime( $params['attr']['value'] ) ); 
+        }
+        
+        // chama a funcao;
+        echo defaultInput( $params );
+    }
+ }
 
 /**
  * select

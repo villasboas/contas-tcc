@@ -55,61 +55,61 @@ class Bill extends SG_Controller {
 	 */
 	public function __validate() {
 		$rules = array (
-  0 => 
-  array (
-    'field' => 'client_id',
-    'label' => 'Cliente',
-    'rules' => 'trim|required|max_length[11]|integer',
-  ),
-  1 => 
-  array (
-    'field' => 'bill_of_sale_id',
-    'label' => 'Nota fiscal',
-    'rules' => 'trim|required|max_length[11]|integer',
-  ),
-  2 => 
-  array (
-    'field' => 'cnpj',
-    'label' => 'CNPJ',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  3 => 
-  array (
-    'field' => 'portador',
-    'label' => 'Portador',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  4 => 
-  array (
-    'field' => 'description',
-    'label' => 'Descrição',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  5 => 
-  array (
-    'field' => 'value_total',
-    'label' => 'Valor total',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  6 => 
-  array (
-    'field' => 'tranche_number',
-    'label' => 'Número de parcelas',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  7 => 
-  array (
-    'field' => 'expiration_date_first_tranche',
-    'label' => 'Vencimento primeira parcela',
-    'rules' => 'trim|required',
-  ),
-  8 => 
-  array (
-    'field' => 'status',
-    'label' => 'Status',
-    'rules' => 'trim|required|max_length[1]',
-  ),
-);
+			0 => 
+			array (
+				'field' => 'client_id',
+				'label' => 'Cliente',
+				'rules' => 'trim|required|max_length[11]|integer',
+			),
+			1 => 
+			array (
+				'field' => 'bill_of_sale_id',
+				'label' => 'Nota fiscal',
+				'rules' => 'trim|required|max_length[11]|integer',
+			),
+			2 => 
+			array (
+				'field' => 'cnpj',
+				'label' => 'CNPJ',
+				'rules' => 'trim|required|max_length[255]',
+			),
+			3 => 
+			array (
+				'field' => 'portador',
+				'label' => 'Portador',
+				'rules' => 'trim|required|max_length[255]',
+			),
+			4 => 
+			array (
+				'field' => 'description',
+				'label' => 'Descrição',
+				'rules' => 'trim|required|max_length[255]',
+			),
+			5 => 
+			array (
+				'field' => 'value_total',
+				'label' => 'Valor total',
+				'rules' => 'trim|required|max_length[255]',
+			),
+			6 => 
+			array (
+				'field' => 'tranche_number',
+				'label' => 'Número de parcelas',
+				'rules' => 'trim|required|max_length[255]',
+			),
+			7 => 
+			array (
+				'field' => 'expiration_date_first_tranche',
+				'label' => 'Vencimento primeira parcela',
+				'rules' => 'trim|required',
+			),
+			8 => 
+			array (
+				'field' => 'status',
+				'label' => 'Status',
+				'rules' => 'trim|required|max_length[1]',
+			),
+			);
 
 		// valida o formulário
         $this->form_validation->set_rules( $rules );

@@ -56,6 +56,74 @@ class Bill_model extends Bill_finder {
     }
 
     /**
+     * Cria as parcelas quando uma nova duplicata é criada
+     *
+     * @return void
+     */
+    function createTranches( $params ) {
+
+      // Carrega a model de parcelas
+      $this->load->model('tranche');
+
+      // Verifica quantas parcelas serão cridas
+      for( $i = 1; $i <= $this->tranche_number; $i++ ) {
+
+        // O tempo da primeira parcela
+        $timeFirstDue = strtotime( $this->expiration_date_first_tranche );
+
+        // Vencimento da parcela atual
+        $due = date( 'Y-m-d H:i:s', strtotime( '+'.($i-1).' months', $timeFirstDue ) );
+
+        // Seta os dados da parcela
+        $trancheData = [
+          'bill_id'         => $this->id,
+          'value'           => $this->value_total / $this->tranche_number,
+          'expiration_date' => $due,
+          'status'          => 'A',
+          'interest_rate'   => $i
+        ];
+
+        // Cria a parcela
+        $parcela = $this->Tranche->new();
+        $parcela->fill( $trancheData );
+
+        // Salva a parcela
+        $parcela->save();
+      }
+    }
+
+    /**
+     * Remove as parcelas
+     *
+     * @return void
+     */
+    function removeTranches() {
+
+    }
+
+    /**
+     * Atualiza as parcelas
+     *
+     * @return void
+     */
+    function updateTranches() {
+
+    }
+
+    /**
+     * Hooks das parcelas
+     *
+     * @return void
+     */
+    function hooks() {
+      return [
+        'afterInsert' => 'createTranches',
+        'afterDelete' => 'removeTranches',
+        'afterUpdate' => 'updateTranches'
+      ];
+    }
+
+    /**
      * table
      *
      * pega a tabela
@@ -112,24 +180,24 @@ class Bill_model extends Bill_finder {
               'dt' => 3,
             ),
           );
-                  $columns[] = 
-                  [   
-                      'db' => 'id',
-                      'dt' => 4,  
-                      'formatter' => function( $d, $row ) {
+        $columns[] = 
+        [   
+            'db' => 'id',
+            'dt' => 4,  
+            'formatter' => function( $d, $row ) {
 
-                          // Formata a data
-                          $del  = rmButton( 'bill/delete/'.$d );
-                          $edit = editButton( 'bill/list?addModal=true&id='.$d );
+                // Formata a data
+                $del  = rmButton( 'bill/delete/'.$d );
+                $edit = editButton( 'bill/list?addModal=true&id='.$d );
 
-                          // Volta os botões
-                          return $del.'&nbsp'.$edit;
-                      }
-                  ];
+                // Volta os botões
+                return $del.'&nbsp'.$edit;
+            }
+        ];
 
-                  // Volta o resultado
-                  return $this->datatables->send( $this->table(), $columns );
-              }
+        // Volta o resultado
+        return $this->datatables->send( $this->table(), $columns );
+    }
               
     /**
      * form
@@ -157,6 +225,7 @@ class Bill_model extends Bill_finder {
               'label' => 'Nota Fiscal',
               'model' => [ 'name' => 'bill_of_sale' , 'call' => 'Bill_of_sale' ],
               'name' => 'bill_of_sale_id',
+              'attModel' => 'number',
               'type' => 'select',
               'rules' => 'trim|required|max_length[11]|integer',
             ),
@@ -169,9 +238,11 @@ class Bill_model extends Bill_finder {
             ),
             'portador' => 
             array (
-              'label' => 'Portador',
+              'label' => 'Portador (Banco)',
+              'model' => [ 'name' => 'bank' , 'call' => 'Bank' ],
               'name' => 'portador',
-              'type' => 'text',
+              'attModel' => 'name',
+              'type' => 'select',
               'rules' => 'trim|required|max_length[255]',
             ),
             'description' => 
@@ -185,21 +256,21 @@ class Bill_model extends Bill_finder {
             array (
               'label' => 'Valor total',
               'name' => 'value_total',
-              'type' => 'text',
+              'type' => 'number',
               'rules' => 'trim|required|max_length[255]',
             ),
             'tranche_number' => 
             array (
               'label' => 'Numero da parcela',
               'name' => 'tranche_number',
-              'type' => 'text',
+              'type' => 'number',
               'rules' => 'trim|required|max_length[255]',
             ),
             'expiration_date_first_tranche' => 
             array (
-              'label' => 'Validade da primeira parcela',
+              'label' => 'Vencimento primeira parcela',
               'name' => 'expiration_date_first_tranche',
-              'type' => 'text',
+              'type' => 'date',
               'rules' => 'trim|required',
             ),
             'status' => 
