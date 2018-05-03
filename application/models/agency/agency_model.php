@@ -103,6 +103,15 @@ class Agency_model extends Agency_finder {
   array (
     'db' => 'bank_id',
     'dt' => 1,
+    'formatter' => function( $d, $row ) {
+      
+        // Carrega a model
+        $this->load->model( 'bank' );
+
+        $bank = $this->Bank->findById( $d );
+
+        return $bank->name;
+    }
   ),
   2 => 
   array (
