@@ -11,6 +11,12 @@ require_once 'client_finder.php';
 class Client_model extends Client_finder {
 
     /**
+     * Indica a existencia de fieldsets
+     * 
+     */
+    public $hasFieldsets = true;
+
+    /**
      * fields
      *
      * campos do model
@@ -149,127 +155,135 @@ class Client_model extends Client_finder {
     public function form( $key ) {
         $url = $this->id ? 'client/save/'.$this->id : 'client/save';
         $data = [
-            'url'    => $url,
-            'fields' => array (
-  'cnpj' => 
-  array (
-    'label' => 'CNPJ',
-    'name' => 'cnpj',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'social_name' => 
-  array (
-    'label' => 'Razão social',
-    'name' => 'social_name',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'fantasy_name' => 
-  array (
-    'label' => 'Nome fantasia',
-    'name' => 'fantasy_name',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'representative' => 
-  array (
-    'label' => 'Representante',
-    'name' => 'representative',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'cpf' => 
-  array (
-    'label' => 'CPF',
-    'name' => 'cpf',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'email' => 
-  array (
-    'label' => 'E-mail',
-    'name' => 'email',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'state' => 
-  array (
-    'label' => 'Estado',
-    'name' => 'state',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'city' => 
-  array (
-    'label' => 'Cidade',
-    'name' => 'city',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'zip_code' => 
-  array (
-    'label' => 'CEP',
-    'name' => 'zip_code',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'address' => 
-  array (
-    'label' => 'Endereço',
-    'name' => 'address',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'address_number' => 
-  array (
-    'label' => 'Número',
-    'name' => 'address_number',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'complement' => 
-  array (
-    'label' => 'Complemento',
-    'name' => 'complement',
-    'type' => 'text',
-    'rules' => 'trim|max_length[255]',
-  ),
-  'neighborhood' => 
-  array (
-    'label' => 'Bairro',
-    'name' => 'neighborhood',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'phone_number' => 
-  array (
-    'label' => 'Telefone',
-    'name' => 'phone_number',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'cellphone_number' => 
-  array (
-    'label' => 'Celular',
-    'name' => 'cellphone_number',
-    'type' => 'text',
-    'rules' => 'trim|required|max_length[255]',
-  ),
-  'status' => 
-  array (
-    'label'  => 'Status',
-    'name'   => 'status',
-    'opcoes' => [ 
-        [ 'label' => 'Ativo', 'value' => 'A' ],
-        [ 'label' => 'Bloqueado', 'value' => 'B' ]
-      ],
-    'type'   => 'select',
-    'rules'  => 'trim|required|max_length[1]',
-  ),
-)
+            'url' => $url
         ];
-        return $data[$key];
+        $data['fields']['Dados da empresa'] = [
+            'cnpj' => 
+            array (
+              'label' => 'CNPJ',
+              'name' => 'cnpj',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'social_name' => 
+            array (
+              'label' => 'Razão social',
+              'name' => 'social_name',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'fantasy_name' => 
+            array (
+              'label' => 'Nome fantasia',
+              'name' => 'fantasy_name',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            )
+        ];
+        $data['fields']['Representante'] = [
+            'representative' => 
+            array (
+              'label' => 'Representante',
+              'name' => 'representative',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'cpf' => 
+            array (
+              'label' => 'CPF',
+              'name' => 'cpf',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'email' => 
+            array (
+              'label' => 'E-mail',
+              'name' => 'email',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            )
+        ];
+        $data['fields']['Localização'] = [
+          'state' => 
+            array (
+              'label' => 'Estado',
+              'name' => 'state',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'city' => 
+            array (
+              'label' => 'Cidade',
+              'name' => 'city',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'zip_code' => 
+            array (
+              'label' => 'CEP',
+              'name' => 'zip_code',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'address' => 
+            array (
+              'label' => 'Endereço',
+              'name' => 'address',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'address_number' => 
+            array (
+              'label' => 'Número',
+              'name' => 'address_number',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'complement' => 
+            array (
+              'label' => 'Complemento',
+              'name' => 'complement',
+              'type' => 'text',
+              'rules' => 'trim|max_length[255]',
+            ),
+            'neighborhood' => 
+            array (
+              'label' => 'Bairro',
+              'name' => 'neighborhood',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            )
+        ];
+        $data['fields']['Contato'] = [
+          'phone_number' => 
+            array (
+              'label' => 'Telefone',
+              'name' => 'phone_number',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            ),
+            'cellphone_number' => 
+            array (
+              'label' => 'Celular',
+              'name' => 'cellphone_number',
+              'type' => 'text',
+              'rules' => 'trim|required|max_length[255]',
+            )
+        ];   
+        $data['fields']['Atividade'] = [
+          'status' => 
+            array (
+              'label'  => 'Status',
+              'name'   => 'status',
+              'opcoes' => [ 
+                  [ 'label' => 'Ativo', 'value' => 'A' ],
+                  [ 'label' => 'Bloqueado', 'value' => 'B' ]
+                ],
+              'type'   => 'select',
+              'rules'  => 'trim|required|max_length[1]',
+            )
+        ];
+        return isset( $data[$key] ) ? $data[$key] : false;
     }
 
     /**

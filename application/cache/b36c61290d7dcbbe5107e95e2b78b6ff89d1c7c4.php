@@ -1,10 +1,7 @@
 <?php $__env->startSection('content'); ?>
+<?php if( !getAttr( 'addModal' ) ): ?>
 <div class="bg-light p-2 z-depth-1 rounded pt-3 pb-3">
     <?php echo $__env->yieldContent( 'beforeGrid' ); ?>
-
-    <?php if( method_exists( $modelGrid, 'form' ) ): ?>
-    <?php echo $__env->make( 'components.model-form.model-form' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <?php endif; ?>
 
     <div class="col pb-3 text-right">
         <?php if( isset( $modelGrid->enableImport ) && $modelGrid->enableImport ): ?>
@@ -70,6 +67,13 @@
         </tfoot>
     </table>
 </div>
+<?php else: ?>
+    <?php if( method_exists( $modelGrid, 'form' ) ): ?>
+    <div class="pb-3">
+        <?php echo $__env->make( 'components.model-form.model-form' , array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </div>
+    <?php endif; ?>
+<?php endif; ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection( 'scripts' ); ?>

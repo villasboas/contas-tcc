@@ -1,11 +1,8 @@
 @extends('layouts.admin')
 @section('content')
+@if( !getAttr( 'addModal' ) )
 <div class="bg-light p-2 z-depth-1 rounded pt-3 pb-3">
     @yield( 'beforeGrid' )
-
-    @if( method_exists( $modelGrid, 'form' ) )
-    @include( 'components.model-form.model-form' )
-    @endif
 
     <div class="col pb-3 text-right">
         @if( isset( $modelGrid->enableImport ) && $modelGrid->enableImport )
@@ -71,6 +68,13 @@
         </tfoot>
     </table>
 </div>
+@else
+    @if( method_exists( $modelGrid, 'form' ) )
+    <div class="pb-3">
+        @include( 'components.model-form.model-form' )
+    </div>
+    @endif
+@endif
 @endsection
 
 @section( 'scripts' )

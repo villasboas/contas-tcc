@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost:8000/';
-$config['base_url'] = 'https://contas.codeback.com.br/';
+// $config['base_url'] = 'https://contas.codeback.com.br/';
 
 /*
 |--------------------------------------------------------------------------
@@ -544,7 +544,7 @@ $config['enable_cli'] = true;
 |
 |
 */
-$config['site_name'] = 'Simple';
+$config['site_name'] = 'Pagbem';
 
 /*
 |--------------------------------------------------------------------------
